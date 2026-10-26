@@ -1,3 +1,4 @@
 [submodule "minecraft-assets"]
 	path = minecraft-assets
-	url = https://github.com/PrismarineJS/minecraft-assets.git
+	url = https://github.com/mc-zuri/minecraft-assets.git
+	branch = bedrock
