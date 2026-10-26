@@ -1,4 +1,5 @@
 const mcDataToNode = require('./lib/loader')
+const bedrock = require('./lib/bedrock')
 const cache = {} // prevent reindexing when requiring multiple time the same version
 
 function getVersion (mcVersion) {
@@ -21,6 +22,8 @@ function minor (version) {
 }
 
 module.exports = function (mcVersion) {
+  // Bedrock: 'bedrock_1.21.0'
+  if (String(mcVersion).startsWith('bedrock_')) return bedrock.load(String(mcVersion).slice('bedrock_'.length))
   // Check exact version first
   let assets = getVersion(mcVersion)
   if (assets) { return assets }
@@ -187,6 +190,8 @@ const data = {
 }
 
 module.exports.versions = Object.keys(data)
+// the Bedrock versions there are assets of, without the bedrock_ prefix
+module.exports.bedrockVersions = bedrock.versions
 
 const lastOfMajor = {}
 for (const version in data) {

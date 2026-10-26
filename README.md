@@ -17,6 +17,11 @@ const mcAssets=require("minecraft-assets")("1.8.8")
 console.log("https://raw.githubusercontent.com/rom1504/minecraft-assets/master/data/1.8.8/"+mcAssets.getTexture("wheat_seeds")+".png")
 
 console.log(mcAssets.textureContent["wheat_seeds"].texture)
+
+// Bedrock Edition, with the same API
+const bedrockAssets=require("minecraft-assets")("bedrock_1.21.0")
+
+console.log(bedrockAssets.blocksStates.oak_stairs)
 ```
 
 ## Documentation
